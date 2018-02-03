@@ -3,3 +3,6 @@
 /custom.el
 /elpa
 /var
+/auto-save-list
+/history
+*.elc
