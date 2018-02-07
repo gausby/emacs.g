@@ -5,4 +5,9 @@
 /var
 /auto-save-list
 /history
+/places
+/backups
+/eshell
+/company-statistics-cache.el
+/projectile-bookmarks.eld
 *.elc

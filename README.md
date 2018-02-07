@@ -40,3 +40,14 @@ You might also want to adjust this description.
 [Borg]:    https://gitlab.com/tarsius/borg
 [manual]:  https://emacsmirror.net/manual/borg
 [Github]:  https://github.com/emacscollective/emacs.g
+
+
+Remember, Martin !
+------------------
+
+To make the assimilation of org-mode easier one have to switch to
+https; or get an account on the code.orgmode.org site.
+
+``` shell
+git config --global url.https://code.orgmode.org/.insteadOf git@code.orgmode.org:
+```
