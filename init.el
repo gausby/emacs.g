@@ -19,7 +19,34 @@
                    (concat user-emacs-directory "backups")))))
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
-  (menu-bar-mode -1))
+  (menu-bar-mode -1)
+  ;; set text input and behaviour ----------------------------------------
+  (prefer-coding-system       'utf-8)
+  (set-default-coding-systems 'utf-8)
+  (set-terminal-coding-system 'utf-8)
+  (set-keyboard-coding-system 'utf-8)
+  (set-selection-coding-system 'utf-8)
+  ;; tabs
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 4)
+  ;; overwrite regions on keypress
+  (delete-selection-mode t)
+  ;; highlight current line
+  (global-hl-line-mode t)
+  (set-default 'indicate-buffer-boundaries '((top . nil) (bottom . right)))
+  ;; scroll one line at a time
+  (setq scroll-step 1
+        ;; ...and don't go bananas when scrolling
+        scroll-conservatively 10000)
+  ;; Make it difficult to quit emacs
+  (define-key ctl-x-map (kbd "C-S-c") 'save-buffers-kill-terminal)
+  (define-key ctl-x-map (kbd "C-c") 'delete-frame)
+  ;; Remove warnings when using certain commands
+  (put 'narrow-to-region 'disabled nil)
+  ;; auto load files when they change on disk
+  (global-auto-revert-mode t)
+  ;; remove whitespace when buffers are saved
+  (add-hook 'before-save-hook 'whitespace-cleanup))
 
 (when window-system
   (tooltip-mode -1)

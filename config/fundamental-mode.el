@@ -1,5 +1,7 @@
 (use-package simple
   :config
+  ;; mode-line
+  (setq uniquify-buffer-name-style 'forward)
   (column-number-mode))
 
 ;; shackle

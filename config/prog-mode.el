@@ -39,7 +39,8 @@
     :preface
     (defun mg/my-erlang-mode-hook ()
       (set (make-local-variable 'compilation-read-command) nil)
-      (flycheck-mode 1))
+      (flycheck-mode 1)
+      (smartparens-mode 1))
     :hook ((erlang-mode . mg/my-erlang-mode-hook)
            (erlang-mode . flyspell-prog-mode))
     :bind ((:map erlang-mode-map
