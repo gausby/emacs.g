@@ -86,7 +86,7 @@
 
 ;; set the os path
 (use-package exec-path-from-shell
-  :if (memq window-system '(mac ns x))
+  :if (memq window-system '(mac ns))
   :config
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-env "GOPATH"))
@@ -119,7 +119,6 @@
 
 (use-package dash
   :config (dash-enable-font-lock))
-
 
 (progn ; `isearch'
   (setq isearch-allow-scroll t))
