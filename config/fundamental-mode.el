@@ -200,3 +200,33 @@ Once: (projectile-kill-buffers)"
   :defer t
   :config
   (setq Man-width 80))
+
+;;
+;; Eshell - the best shell in existence
+;;
+(use-package eshell
+  :after projectile
+  :preface
+  (defun universal-argument-eshell ()
+    "wrap the `eshell'-command, with a check for whether or not
+the universal argument has been applied, and how many times.
+Zero times: normal behavior (eshell); Once: open a shell in the
+current project root"
+    (interactive)
+    (cond ((equal current-prefix-arg nil)
+           (call-interactively 'eshell))
+          ((equal current-prefix-arg (list 4))
+           (projectile-run-eshell))
+          ))
+  ;; mode hook
+  (defun mg/my-eshell-mode-hook ()
+    (set (make-local-variable 'global-hl-line-mode) nil))
+  :hook (eshell-mode . mg/my-eshell-mode-hook)
+  :bind
+  ((:map ctl-x-map
+         ("C-t" . universal-argument-eshell))))
+
+(use-package eshell-git-prompt
+  :after eshell
+  :config
+  (eshell-git-prompt-use-theme 'powerline))
