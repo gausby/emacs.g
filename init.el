@@ -92,10 +92,11 @@
   (exec-path-from-shell-copy-env "GOPATH"))
 
 (use-package custom
-  :config
+  :preface
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-  (when (file-exists-p custom-file)
-    (load custom-file)))
+  :if (file-exists-p custom-file)
+  :config
+  (load custom-file))
 
 (use-package server
   :config (or (server-running-p) (server-mode)))
