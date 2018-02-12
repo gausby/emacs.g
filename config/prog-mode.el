@@ -27,6 +27,13 @@
   :config (global-eldoc-mode))
 
 ;;
+;; restclient
+;;
+(use-package restclient
+  :hook ((restclient-mode . smartparens-mode)
+         (restclient-mode . flyspell-prog-mode)))
+
+;;
 ;; Erlang, todo, see if we can get this into use-package, somehow
 ;;
 (let* ((default-directory "/usr/local/lib/erlang")
