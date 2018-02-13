@@ -12,6 +12,8 @@
   (setq flyspell-correct-interface 'flyspell-correct-ivy)
   (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-previous-word-generic))
 
+(use-package pandoc-mode)
+
 (use-package markdown-mode
   :mode (("\\.\\(md\\|mdown\\|markdown\\)\\'" . markdown-mode)
          ("README\\.md\\'" . gfm-mode)))

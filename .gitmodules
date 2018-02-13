@@ -112,6 +112,9 @@
 [submodule "packed"]
 	path = lib/packed
 	url = git@github.com:emacscollective/packed.git
+[submodule "pandoc-mode"]
+	path = lib/pandoc-mode
+	url = git@github.com:joostkremers/pandoc-mode.git
 [submodule "pkg-info"]
 	path = lib/pkg-info
 	url = git@github.com:lunaryorn/pkg-info.el.git
