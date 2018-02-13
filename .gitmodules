@@ -28,6 +28,9 @@
 [submodule "counsel-projectile"]
 	path = lib/counsel-projectile
 	url = git@github.com:ericdanan/counsel-projectile.git
+[submodule "crux"]
+	path = lib/crux
+	url = git@github.com:bbatsov/crux.git
 [submodule "dash"]
 	path = lib/dash
 	url = git@github.com:magnars/dash.el.git
