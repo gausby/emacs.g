@@ -51,9 +51,6 @@
 [submodule "epl"]
 	path = lib/epl
 	url = git@github.com:cask/epl.git
-[submodule "eshell-git-prompt"]
-	path = lib/eshell-git-prompt
-	url = git@github.com:xuchunyang/eshell-git-prompt.git
 [submodule "exec-path-from-shell"]
 	path = lib/exec-path-from-shell
 	url = git@github.com:purcell/exec-path-from-shell.git

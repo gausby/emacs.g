@@ -233,8 +233,3 @@ current project root"
   :bind
   ((:map ctl-x-map
          ("C-t" . universal-argument-eshell))))
-
-(use-package eshell-git-prompt
-  :after eshell
-  :config
-  (eshell-git-prompt-use-theme 'powerline))
