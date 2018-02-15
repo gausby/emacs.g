@@ -31,7 +31,9 @@
 ;;
 (use-package restclient
   :hook ((restclient-mode . smartparens-mode)
-         (restclient-mode . flyspell-prog-mode)))
+         (restclient-mode . flyspell-prog-mode))
+  :config
+  (mg/add-shackle-rule '("*HTTP Response*" :select t :align below :size 0.33)))
 
 ;;
 ;; Erlang, todo, see if we can get this into use-package, somehow
