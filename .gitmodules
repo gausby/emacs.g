@@ -28,6 +28,9 @@
 [submodule "counsel-projectile"]
 	path = lib/counsel-projectile
 	url = git@github.com:ericdanan/counsel-projectile.git
+[submodule "crux"]
+	path = lib/crux
+	url = git@github.com:bbatsov/crux.git
 [submodule "dash"]
 	path = lib/dash
 	url = git@github.com:magnars/dash.el.git
@@ -48,9 +51,6 @@
 [submodule "epl"]
 	path = lib/epl
 	url = git@github.com:cask/epl.git
-[submodule "eshell-git-prompt"]
-	path = lib/eshell-git-prompt
-	url = git@github.com:xuchunyang/eshell-git-prompt.git
 [submodule "exec-path-from-shell"]
 	path = lib/exec-path-from-shell
 	url = git@github.com:purcell/exec-path-from-shell.git
@@ -109,6 +109,9 @@
 [submodule "packed"]
 	path = lib/packed
 	url = git@github.com:emacscollective/packed.git
+[submodule "pandoc-mode"]
+	path = lib/pandoc-mode
+	url = git@github.com:joostkremers/pandoc-mode.git
 [submodule "pkg-info"]
 	path = lib/pkg-info
 	url = git@github.com:lunaryorn/pkg-info.el.git

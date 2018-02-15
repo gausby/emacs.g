@@ -36,6 +36,14 @@
          ("M-g w" . avy-goto-word-1)
          ("M-g l" . avy-goto-line)))
 
+;;
+;; Crux - A Collection of Ridiculously Useful eXtensions for Emacs
+;;
+(use-package crux
+  :demand t
+  :bind (("C-a" . crux-move-beginning-of-line)))
+
+
 ;; compilation
 (use-package compile
   :preface
@@ -225,8 +233,3 @@ current project root"
   :bind
   ((:map ctl-x-map
          ("C-t" . universal-argument-eshell))))
-
-(use-package eshell-git-prompt
-  :after eshell
-  :config
-  (eshell-git-prompt-use-theme 'powerline))
