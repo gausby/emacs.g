@@ -103,3 +103,15 @@ expressions with Elixir"
           alchemist-execute-command (expand-file-name "elixir")
           alchemist-compile-command (expand-file-name "elixirc")
           alchemist-iex-program-name (expand-file-name "iex"))))
+
+(use-package request)
+(use-package graphql-mode
+  :after request)
+
+;; JSON is one of the worst formats ever to end up as Lingua franca
+(use-package json-mode
+  :hook ((json-mode . smartparens-mode)))
+(use-package json-reformat
+  :after json-mode
+  :bind ((:map json-mode-map
+               ("C-c TAB" . json-reformat-region))))
