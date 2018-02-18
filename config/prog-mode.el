@@ -23,8 +23,8 @@
 
 (use-package eldoc
   :after lisp-mode
-  :if (version< "25" emacs-version)
-  :config (global-eldoc-mode))
+  :hook ((emacs-lisp-mode . eldoc-mode)
+         (lisp-interaction-mode . eldoc-mode)))
 
 ;;
 ;; restclient

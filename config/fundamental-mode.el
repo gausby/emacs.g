@@ -161,14 +161,15 @@ Once: (projectile-kill-buffers)"
 ;; Completion
 ;;
 (use-package company
-  :config
-  (company-statistics-mode 1)
-  (global-company-mode 1)
+  :init
   (setq company-idle-delay 0.3
         company-tooltip-limit 10
         company-minimum-prefix-length 2
         company-tooltip-align-annotations t
-        company-tooltip-flip-when-above t))
+        company-tooltip-flip-when-above t)
+  :config
+  (company-statistics-mode 1)
+  (global-company-mode 1))
 
 ;;
 ;; Git related
