@@ -44,6 +44,9 @@
 [submodule "elixir-mode"]
 	path = lib/elixir-mode
 	url = git@github.com:elixir-lang/emacs-elixir.git
+[submodule "elm-mode"]
+	path = lib/elm-mode
+	url = git@github.com:jcollard/elm-mode.git
 [submodule "emacsql"]
 	path = lib/emacsql
 	url = git@github.com:skeeto/emacsql.git
@@ -60,9 +63,15 @@
 [submodule "expand-region"]
 	path = lib/expand-region
 	url = git@github.com:magnars/expand-region.el.git
+[submodule "f"]
+	path = lib/f
+	url = git@github.com:rejeep/f.el.git
 [submodule "flycheck"]
 	path = lib/flycheck
 	url = git@github.com:flycheck/flycheck.git
+[submodule "flycheck-elm"]
+	path = lib/flycheck-elm
+	url = git@github.com:bsermons/flycheck-elm.git
 [submodule "flycheck-ledger"]
 	path = lib/flycheck-ledger
 	url = git@github.com:purcell/flycheck-ledger.git

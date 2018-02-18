@@ -115,3 +115,22 @@ expressions with Elixir"
   :after json-mode
   :bind ((:map json-mode-map
                ("C-c TAB" . json-reformat-region))))
+
+;;
+;; elm
+;;
+;; todo, get elm-format working and bind it to a suitable binding
+;;
+(use-package elm-mode
+  :defer t
+  :preface
+  (defun mg/my-elm-mode-hook ()
+    (flycheck-mode 1)
+    (smartparens-mode 1))
+  :hook ((elm-mode . mg/my-elm-mode-hook)))
+(use-package flycheck-elm
+  :after (flycheck elm-mode)
+  :init
+  (setq flycheck-elm-reporting-mode 'all)
+  :config
+  (flycheck-elm-setup))
