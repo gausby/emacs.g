@@ -37,6 +37,13 @@
          ("M-g l" . avy-goto-line)))
 
 ;;
+;; Resize text in all buffers at once
+;;
+(use-package default-text-scale
+  :config
+  (default-text-scale-mode))
+
+;;
 ;; Crux - A Collection of Ridiculously Useful eXtensions for Emacs
 ;;
 (use-package crux
@@ -188,7 +195,7 @@ Once: (projectile-kill-buffers)"
 ;;
 (use-package expand-region
   :bind (("C-=" . er/expand-region)
-         ("C-M-=" . er/contract-region)))
+         ("C--" . er/contract-region)))
 
 ;;
 ;; Dired

@@ -35,6 +35,9 @@
 	path = lib/dash
 	url = git@github.com:magnars/dash.el.git
 	no-makeinfo = dash-template.texi
+[submodule "default-text-scale"]
+	path = lib/default-text-scale
+	url = git@github.com:purcell/default-text-scale.git
 [submodule "diff-hl"]
 	path = lib/diff-hl
 	url = git@github.com:dgutov/diff-hl.git
