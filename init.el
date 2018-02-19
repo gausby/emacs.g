@@ -117,6 +117,24 @@
           (bury-buffer)
         ad-do-it))))
 
+(use-package bind-key
+  ;; a place to put all the functions that I'll keybind globally
+  :init
+  (setq bind-key-describe-special-forms t)
+  ;; functions to bind
+  (defun endless/fill-or-unfill ()
+  "Like `fill-paragraph', but unfill if used twice."
+  (interactive)
+  (let ((fill-column
+         (if (eq last-command 'endless/fill-or-unfill)
+             (progn (setq this-command nil)
+                    (point-max))
+           fill-column)))
+    (call-interactively #'fill-paragraph)))
+  ;;
+  :bind
+  ("M-q" . endless/fill-or-unfill))
+
 (use-package autorevert
   :config
   ;; auto load files when they change on disk
