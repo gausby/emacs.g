@@ -105,6 +105,9 @@
 [submodule "json-reformat"]
 	path = lib/json-reformat
 	url = git@github.com:gongo/json-reformat.git
+[submodule "json-snatcher"]
+	path = lib/json-snatcher
+	url = git@github.com:Sterlingg/json-snatcher.git
 [submodule "ledger-mode"]
 	path = lib/ledger-mode
 	url = git@github.com:ledger/ledger-mode.git

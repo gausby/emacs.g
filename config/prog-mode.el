@@ -112,13 +112,37 @@ expressions with Elixir"
 (use-package graphql-mode
   :after request)
 
+;;
 ;; JSON is one of the worst formats ever to end up as Lingua franca
+;;
+;; Unfortunately a lot of software export and import to this gosh darn
+;; awful format, so it is needed.
+;;
+;; The `json-snatcher` package seems to work 20% of the time, but
+;; `json-mode` require it for some reason--other than that json-mode
+;; seems pretty good, considering it is dealing with JSON.
+;;
+;; json-reformat can be used to make the horrible JSON format a bit
+;; nicer to read--although it has a ton of bugs that will actually
+;; delete data from the structure in certain situations.
+;;
+;; All this might get removed at some point.
+;;
+(use-package json-snatcher)
 (use-package json-mode
+  :after json-snatcher
   :hook ((json-mode . smartparens-mode)))
 (use-package json-reformat
   :after json-mode
+  :preface
+  (defun mg/json-reformat ()
+    "Attempt to json-reformat the region if selected, otherwise
+mark the entire buffer and run the json-reformat command on that"
+    (interactive)
+    (unless (use-region-p) (mark-whole-buffer))
+    (call-interactively 'json-reformat-region))
   :bind ((:map json-mode-map
-               ("C-c TAB" . json-reformat-region))))
+               ("C-c TAB" . mg/json-reformat))))
 
 ;;
 ;; elm
