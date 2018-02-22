@@ -65,6 +65,7 @@
 ;; Elixir
 ;;
 (use-package elixir-mode
+  :after projectile
   :preface
   (defun mg/elixir-create-scratch-buffer ()
     "Open a buffer in elixir/alchemist mode; evaluating the
@@ -81,11 +82,14 @@ expressions with Elixir"
   :bind ((:map elixir-mode-map
                ("C-c C-c" . projectile-compile-project)
                ("C-c C-t" . projectile-test-project)))
-  :config
+  :init
   (projectile-register-project-type 'elixir '("mix.exs")
                                     :compile "mix compile"
                                     :test "mix test"
-                                    :run "mix app.start --temporary")
+                                    :run "mix app.start --temporary"
+                                    :src-dir "lib/"
+                                    :test-dir "test/")
+  :config
   (let ((default-directory "~/Development/github.com/gausby/"))
     (add-to-list 'load-path (expand-file-name "mg-elixir-snippets/"))
     (require 'mg-elixir-snippets)))
@@ -97,7 +101,7 @@ expressions with Elixir"
                ("M-g ." . alchemist-goto-definition-at-point)
                ("C-c h a" . alchemist-help)
                ("C-c h ." . alchemist-help-search-at-point)))
-  :config
+  :init
   (let ((default-directory "~/.exenv/shims/"))
     (setq alchemist-mix-command (expand-file-name "mix")
           alchemist-execute-command (expand-file-name "elixir")
