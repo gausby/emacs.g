@@ -139,8 +139,8 @@ expressions with Elixir"
     "Attempt to json-reformat the region if selected, otherwise
 mark the entire buffer and run the json-reformat command on that"
     (interactive)
-    (unless (use-region-p) (mark-whole-buffer))
-    (call-interactively 'json-reformat-region))
+    (if (use-region-p) (call-interactively 'json-reformat-region)
+      (json-reformat-region (point-min) (point-max))))
   :bind ((:map json-mode-map
                ("C-c TAB" . mg/json-reformat))))
 
