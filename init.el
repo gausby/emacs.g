@@ -67,6 +67,12 @@
   (when window-system
     (tooltip-mode -1)
     (blink-cursor-mode -1))
+  ;; setup keyboard
+  (setq mac-option-modifier nil
+        ns-function-modifier 'super
+        mac-right-command-modifier 'hyper
+        mac-right-option-modifier 'alt
+        mac-command-modifier 'meta)
   ;; highlight current line
   (global-hl-line-mode t)
   ;; Remove warnings when using certain commands
@@ -141,20 +147,14 @@
   (global-auto-revert-mode t))
 
 ;;; Long tail
-(use-package ns
+(use-package frame
   :if (eq window-system 'ns)
-  :config
-  ;; mac keyboard
-  (setq mac-option-modifier nil
-      ns-function-modifier 'super
-      mac-right-command-modifier 'hyper
-      mac-right-option-modifier 'alt
-      mac-command-modifier 'meta)
+  :hook (after-init . toggle-frame-fullscreen)
+  :init
   ;; use srgb colorspace and disable the native fullscreen in macOS,
   ;; which has an annoying transition when running in its native form
   (setq ns-use-srgb-colorspace t
-        ns-use-native-fullscreen nil)
-  (add-hook 'after-init-hook 'toggle-frame-fullscreen))
+        ns-use-native-fullscreen nil))
 
 (use-package dash
   :config (dash-enable-font-lock))
