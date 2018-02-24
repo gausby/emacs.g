@@ -4,7 +4,10 @@
   (setq user-emacs-directory (file-name-directory user-init-file))
   (setq package-enable-at-startup nil)
   ;;
-  (setq load-prefer-newer t))
+  (setq load-prefer-newer t)
+  ;; disable native fullscreen in macOS as soon as possible
+  (setq ns-use-native-fullscreen nil
+        ns-use-srgb-colorspace t))
 
 (progn ; `borg'
   (add-to-list 'load-path (expand-file-name "lib/borg" user-emacs-directory))
@@ -149,12 +152,7 @@
 ;;; Long tail
 (use-package frame
   :if (eq window-system 'ns)
-  :hook (after-init . toggle-frame-fullscreen)
-  :init
-  ;; use srgb colorspace and disable the native fullscreen in macOS,
-  ;; which has an annoying transition when running in its native form
-  (setq ns-use-srgb-colorspace t
-        ns-use-native-fullscreen nil))
+  :hook (after-init . toggle-frame-fullscreen))
 
 (use-package dash
   :config (dash-enable-font-lock))
