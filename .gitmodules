@@ -87,6 +87,9 @@
 [submodule "git-modes"]
 	path = lib/git-modes
 	url = git@github.com:magit/git-modes.git
+[submodule "git-timemachine"]
+	path = lib/git-timemachine
+	url = git@github.com:pidu/git-timemachine.git
 [submodule "graphql"]
 	path = lib/graphql
 	url = git@github.com:vermiculus/graphql.el.git
