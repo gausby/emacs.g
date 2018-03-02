@@ -67,7 +67,9 @@
                   (ansi-color-apply-on-region compilation-filter-start (point-max)))))
     (add-hook 'next-error-hook 'recenter)))
 
-(use-package ripgrep)
+(use-package ripgrep
+  :config
+  (mg/add-shackle-rule '("*ripgrep-search*" :align below :size 0.16)))
 
 (use-package projectile
   :preface
