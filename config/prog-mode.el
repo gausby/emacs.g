@@ -162,3 +162,22 @@ mark the entire buffer and run the json-reformat command on that"
   (setq flycheck-elm-reporting-mode 'all)
   :config
   (flycheck-elm-setup))
+
+;;
+;; OCaml
+;;
+(use-package tuareg
+  :preface
+  (setq opam-bin (ignore-errors (car (process-lines "opam" "config" "var" "bin"))))
+  :if opam-bin
+  :bind ((:map tuareg-mode-map
+               ("C-c SPC" . imenu)))
+  )
+(use-package merlin
+  :after tuareg
+  ;; :preface
+  ;; (setq merlin-command (expand-file-name "ocamlmerlin" opam-bin))
+  ;; :if (file-exists-p merlin-command)
+  :hook (tuareg-mode . merlin-mode))
+(use-package flycheck-ocaml
+  :after (flycheck merlin))

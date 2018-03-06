@@ -75,6 +75,9 @@
 [submodule "flycheck-ledger"]
 	path = lib/flycheck-ledger
 	url = git@github.com:purcell/flycheck-ledger.git
+[submodule "flycheck-ocaml"]
+	path = lib/flycheck-ocaml
+	url = git@github.com:flycheck/flycheck-ocaml.git
 [submodule "flyspell-correct"]
 	path = lib/flyspell-correct
 	url = git@github.com:d12frosted/flyspell-correct.git
@@ -127,6 +130,9 @@
 [submodule "material-theme"]
 	path = lib/material-theme
 	url = git@github.com:cpaulik/emacs-material-theme.git
+[submodule "merlin"]
+	path = lib/merlin
+	url = git@github.com:emacsmirror/merlin.git
 [submodule "notmuch"]
 	path = lib/notmuch
 	url = git://notmuchmail.org/git/notmuch
@@ -169,6 +175,9 @@
 [submodule "smartparens"]
 	path = lib/smartparens
 	url = git@github.com:Fuco1/smartparens.git
+[submodule "tuareg"]
+	path = lib/tuareg
+	url = git@github.com:ocaml/tuareg.git
 [submodule "use-package"]
 	path = lib/use-package
 	url = git@github.com:jwiegley/use-package.git
