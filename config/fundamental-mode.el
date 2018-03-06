@@ -68,7 +68,10 @@
     (add-hook 'next-error-hook 'recenter)))
 
 (use-package ripgrep
+  :after counsel
   :config
+  (setq counsel-rg-base-command
+        "rg -i -M 120 --no-heading --line-number --color never %s .")
   (mg/add-shackle-rule '("*ripgrep-search*" :align below :size 0.16)))
 
 (use-package projectile
