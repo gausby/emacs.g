@@ -169,15 +169,22 @@ mark the entire buffer and run the json-reformat command on that"
 (use-package tuareg
   :preface
   (setq opam-bin (ignore-errors (car (process-lines "opam" "config" "var" "bin"))))
-  :if opam-bin
+  (setq opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share"))))
+  :if (file-exists-p opam-bin)
   :bind ((:map tuareg-mode-map
                ("C-c SPC" . imenu)))
+  :config
+  (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
+  (use-package merlin
+    :hook (tuareg-mode . merlin-mode))
+  ;; todo, make flycheck work in ocaml; enabling this will fail with a
+  ;; call to an undefined function:
+
+  ;; (use-package flycheck-ocaml
+  ;;   :after (flycheck merlin)
+  ;;   :hook (merlin-mode . flycheck-mode)
+  ;;   :preface
+  ;;   (setq merlin-error-after-save nil)
+  ;;   :init
+  ;;   (flycheck-ocaml-setup))
   )
-(use-package merlin
-  :after tuareg
-  ;; :preface
-  ;; (setq merlin-command (expand-file-name "ocamlmerlin" opam-bin))
-  ;; :if (file-exists-p merlin-command)
-  :hook (tuareg-mode . merlin-mode))
-(use-package flycheck-ocaml
-  :after (flycheck merlin))
