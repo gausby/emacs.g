@@ -248,3 +248,11 @@ current project root"
   :bind
   ((:map ctl-x-map
          ("C-t" . universal-argument-eshell))))
+
+;;
+;; BSD Makefiles
+;;
+(use-package makefile-bsdmode
+  :bind ((:map makefile-bsdmake-mode-map
+                 ("C-c C-c" . projectile-compile-project)
+                 ("C-c C-t" . projectile-test-project))))
