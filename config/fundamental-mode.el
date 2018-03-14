@@ -252,7 +252,13 @@ current project root"
 ;;
 ;; BSD Makefiles
 ;;
-(use-package makefile-bsdmode
-  :bind ((:map makefile-bsdmake-mode-map
-                 ("C-c C-c" . projectile-compile-project)
-                 ("C-c C-t" . projectile-test-project))))
+(use-package make-mode
+  :bind
+  ((:map makefile-mode-map
+         ;; I use make to build most of my projects with, so I'll keep
+         ;; the keybindings I would normally have for building a
+         ;; project in the make-mode
+         ("C-c C-c" . projectile-compile-project)
+         ("C-c C-t" . projectile-test-project)
+         ("M-p" . makefile-previous-dependency)
+         ("M-n" . makefile-next-dependency))))
