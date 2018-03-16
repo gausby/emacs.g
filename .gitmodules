@@ -41,6 +41,15 @@
 [submodule "diff-hl"]
 	path = lib/diff-hl
 	url = git@github.com:dgutov/diff-hl.git
+[submodule "docker"]
+	path = lib/docker
+	url = git@github.com:Silex/docker.el.git
+[submodule "docker-tramp"]
+	path = lib/docker-tramp
+	url = git@github.com:emacs-pe/docker-tramp.el.git
+[submodule "dockerfile-mode"]
+	path = lib/dockerfile-mode
+	url = git@github.com:spotify/dockerfile-mode.git
 [submodule "elixir-mode"]
 	path = lib/elixir-mode
 	url = git@github.com:elixir-lang/emacs-elixir.git
@@ -175,6 +184,9 @@
 [submodule "smartparens"]
 	path = lib/smartparens
 	url = git@github.com:Fuco1/smartparens.git
+[submodule "tablist"]
+	path = lib/tablist
+	url = git@github.com:politza/tablist.git
 [submodule "tuareg"]
 	path = lib/tuareg
 	url = git@github.com:ocaml/tuareg.git
