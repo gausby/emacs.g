@@ -272,6 +272,10 @@ current project root"
   (defun mg/update-docker-machine-env (machine-name)
   "Update the system environment with the information provided by
 the `docker-machine env machine-name' command."
+  ;; todo, make this function list the machines available on the
+  ;; machine (docker-machines-entries) can be used for that: warn if
+  ;; no one is present, use the only option if only one is there, and
+  ;; use the completing-read function if more than one is present
   (interactive "sMachine name: ")
   (let* ((docker-machine-env-cmd
           (format "docker-machine env %s" machine-name))
@@ -290,6 +294,12 @@ the `docker-machine env machine-name' command."
 
 ;; for editing `Dockerfile`s
 (use-package dockerfile-mode)
+
+;; yaml, for editing docker-compose.yaml files
+(use-package yaml-mode
+  :bind
+  ((:map yaml-mode-map
+         ("C-m" . newline-and-indent))))
 
 ;; allow tramping into docker containers
 (use-package docker-tramp
