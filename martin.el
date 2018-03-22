@@ -32,21 +32,12 @@
 (when (eq window-system 'ns)
   ;; @todo, set font size based on screen resoulution, not system-name
   ;; set fonts
-  (if (string-equal (system-name) "Martins-MacBook-Pro.local")
-      (let ((font "source code pro"))
-        (set-frame-font font)
-        (set-face-font 'default font)
-        (set-face-attribute 'default nil :height 162)
-        (set-face-attribute 'mode-line nil :font font :height 110)
-        (set-face-attribute 'mode-line-inactive nil :font font :height 110))
-    ;; else
-    (let ((font "source code pro"))
+  (let ((font "source code pro"))
       (set-frame-font font)
       (set-face-font 'default font)
-      (set-face-attribute 'default nil :height 144)
-      (set-face-attribute 'mode-line nil :font font :height 90)
-      (set-face-attribute 'mode-line-inactive nil :font font :height 90))
-    ))
+      (set-face-attribute 'default nil :height 178)
+      (set-face-attribute 'mode-line nil :font font :height 110)
+      (set-face-attribute 'mode-line-inactive nil :font font :height 110)))
 
 ;; Remap PgUp and PgDn to macro definition and execution. These keys
 ;; are located far away from the home-row on a Saber68 keyboard.
