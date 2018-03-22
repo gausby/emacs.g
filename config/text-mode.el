@@ -1,3 +1,25 @@
+(use-package text-mode
+  :preface
+  (defun mg/self-insert-or-wrap-command (start end)
+    "Insert the typed character, or wrap the current selection
+in the typed character if a region is active."
+    (interactive "r")
+    (if (not (use-region-p))
+        (self-insert-command 1)
+      (let ((start-pos (point)))
+        (progn
+          (goto-char end) (self-insert-command 1)
+          (goto-char start) (self-insert-command 1)
+          ;; position the cursor after the inserts
+          (goto-char
+           (if (<= end start-pos)
+               (+ start-pos 2)
+             start-pos))))))
+  :bind ((:map text-mode-map
+               ("*" . mg/self-insert-or-wrap-command)
+               ("_" . mg/self-insert-or-wrap-command)
+               ("/" . mg/self-insert-or-wrap-command))))
+
 (use-package yasnippet
   :config
   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
