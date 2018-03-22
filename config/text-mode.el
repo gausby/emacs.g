@@ -7,18 +7,13 @@ in the typed character if a region is active."
     (if (not (use-region-p))
         (self-insert-command 1)
       (let ((start-pos (point)))
-        (progn
-          (goto-char end) (self-insert-command 1)
-          (goto-char start) (self-insert-command 1)
-          ;; position the cursor after the inserts
-          (goto-char
-           (if (<= end start-pos)
-               (+ start-pos 2)
-             start-pos))))))
-  :bind ((:map text-mode-map
-               ("*" . mg/self-insert-or-wrap-command)
-               ("_" . mg/self-insert-or-wrap-command)
-               ("/" . mg/self-insert-or-wrap-command))))
+        (goto-char end) (self-insert-command 1)
+        (goto-char start) (self-insert-command 1)
+        ;; position the cursor after the inserts
+        (goto-char
+         (if (= start-pos end)
+             (+ start-pos 2)
+           start-pos))))))
 
 (use-package yasnippet
   :config
@@ -38,11 +33,20 @@ in the typed character if a region is active."
 
 (use-package markdown-mode
   :mode (("\\.\\(md\\|mdown\\|markdown\\)\\'" . markdown-mode)
-         ("README\\.md\\'" . gfm-mode)))
+         ("README\\.md\\'" . gfm-mode))
+  :bind ((:map markdown-mode-map
+               ("*" . mg/self-insert-or-wrap-command)
+               ("_" . mg/self-insert-or-wrap-command)
+               ("`" . mg/self-insert-or-wrap-command))))
 
 (use-package fountain-mode
   :mode ("\\.fountain\\'" . fountain-mode)
-  :bind (:map fountain-mode-map ("C-c SPC" . imenu)))
+  :bind ((:map fountain-mode-map
+               ("C-c SPC" . imenu)
+               ("#" . mg/self-insert-or-wrap-command)
+               ("*" . mg/self-insert-or-wrap-command)
+               ("_" . mg/self-insert-or-wrap-command)))
+  :hook ((fountain-mode . smartparens-mode)))
 
 (use-package ledger-mode
   :preface
