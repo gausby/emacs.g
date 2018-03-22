@@ -16,7 +16,7 @@
                           (file-expand-wildcards org-file-glob)))
            (file (completing-read "Switch to org file: " files)))
       (find-file (expand-file-name file))))
-    ;; Helpers -----------------------------------------------------------
+  ;; Helpers -----------------------------------------------------------
   (defun mg/org-decorate-nodes-with-ids ()
     "Add ID properties to nodes in the current file which
 does not already have one."
@@ -29,10 +29,13 @@ does not already have one."
       (kill-new temporary-id)
       (message "Copied %s to kill-ring" temporary-id)))
   :hook (org-mode . mg/my-org-mode-hook)
-  :bind (:map ctl-x-map
-              ("C-n" . org-capture)
-              ("a" . org-agenda)
-              ("C-a" . mg/open-notes-file))
+  :bind ((:map ctl-x-map
+               ("C-n" . org-capture)
+               ("a" . org-agenda)
+               ("C-a" . mg/open-notes-file))
+         (:map org-mode-map
+               ("M-p" . org-backward-heading-same-level)
+               ("M-n" . org-forward-heading-same-level)))
   :config
   ;; Navigation
   ;; Make C-a and C-e jump to logical positions and make kill-line
