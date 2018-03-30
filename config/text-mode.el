@@ -1,18 +1,20 @@
 (use-package text-mode
   :preface
-  (defun mg/self-insert-or-wrap-command (start end)
+  (defun mg/self-insert-or-wrap-command (n)
     "Insert the typed character, or wrap the current selection
 in the typed character if a region is active."
-    (interactive "r")
+    (interactive "p")
     (if (not (use-region-p))
-        (self-insert-command 1)
-      (let ((start-pos (point)))
-        (goto-char end) (self-insert-command 1)
-        (goto-char start) (self-insert-command 1)
+        (self-insert-command n)
+      (let* ((start-pos (point))
+             (start (region-beginning))
+             (end (region-end)))
+        (goto-char end) (self-insert-command n)
+        (goto-char start) (self-insert-command n)
         ;; position the cursor after the inserts
         (goto-char
          (if (= start-pos end)
-             (+ start-pos 2)
+             (+ start-pos (* 2 n))
            start-pos))))))
 
 (use-package yasnippet
