@@ -66,6 +66,12 @@
 [submodule "epl"]
 	path = lib/epl
 	url = git@github.com:cask/epl.git
+[submodule "es-mode"]
+	path = lib/es-mode
+	url = git@github.com:dakrone/es-mode.git
+[submodule "esxml"]
+	path = lib/esxml
+	url = git@github.com:tali713/esxml.git
 [submodule "exec-path-from-shell"]
 	path = lib/exec-path-from-shell
 	url = git@github.com:purcell/exec-path-from-shell.git
@@ -145,6 +151,12 @@
 [submodule "notmuch"]
 	path = lib/notmuch
 	url = git://notmuchmail.org/git/notmuch
+[submodule "nov"]
+	path = lib/nov
+	url = git@github.com:wasamasa/nov.el.git
+[submodule "ob-restclient"]
+	path = lib/ob-restclient
+	url = git@github.com:alf/ob-restclient.el.git
 [submodule "org"]
 	path = lib/org
 	url = git@code.orgmode.org:bzg/org-mode.git
@@ -157,6 +169,9 @@
 [submodule "pandoc-mode"]
 	path = lib/pandoc-mode
 	url = git@github.com:joostkremers/pandoc-mode.git
+[submodule "php-mode"]
+	path = lib/php-mode
+	url = git@github.com:ejmr/php-mode.git
 [submodule "pkg-info"]
 	path = lib/pkg-info
 	url = git@github.com:lunaryorn/pkg-info.el.git
@@ -184,6 +199,9 @@
 [submodule "smartparens"]
 	path = lib/smartparens
 	url = git@github.com:Fuco1/smartparens.git
+[submodule "spark"]
+	path = lib/spark
+	url = git@github.com:alvinfrancis/spark.git
 [submodule "tablist"]
 	path = lib/tablist
 	url = git@github.com:politza/tablist.git
