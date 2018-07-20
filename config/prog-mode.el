@@ -39,7 +39,7 @@
 ;; Erlang, todo, see if we can get this into use-package, somehow
 ;;
 (let* ((default-directory "/usr/local/lib/erlang")
-       (tools-version "2.11.2")
+       (tools-version "3.0")
        (erlang-tools-dir (concat "lib/tools-" tools-version "/emacs")))
   (add-to-list 'load-path (expand-file-name erlang-tools-dir))
   (add-to-list 'exec-path (expand-file-name "bin"))
