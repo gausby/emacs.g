@@ -56,16 +56,16 @@
   :preface
   (defun mg/my-compilation-mode-hook ()
     (setq compilation-scroll-output 'first-error)
+    (visual-line-mode 1)
     (text-scale-set -3))
-  :hook ((compilation-mode . mg/my-compilation-mode-hook))
-  :config
-  (ignore-errors
-    (require 'ansi-color)
-    (add-hook 'compilation-filter-hook
-              (lambda ()
-                (when (eq major-mode 'compilation-mode)
-                  (ansi-color-apply-on-region compilation-filter-start (point-max)))))
-    (add-hook 'next-error-hook 'recenter)))
+  (require 'ansi-color)
+  (defun mg/my-compilation-filter-hook ()
+    (when (eq major-mode 'compilation-mode)
+      (ansi-color-apply-on-region compilation-filter-start (point-max))))
+  :hook ((compilation-mode . mg/my-compilation-mode-hook)
+         (next-error . recenter)
+         (compilation-filter . mg/my-compilation-filter-hook)))
+
 
 (use-package ripgrep
   :after counsel
