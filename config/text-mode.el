@@ -36,10 +36,16 @@ in the typed character if a region is active."
 (use-package markdown-mode
   :mode (("\\.\\(md\\|mdown\\|markdown\\)\\'" . markdown-mode)
          ("README\\.md\\'" . gfm-mode))
+  :preface
+  (defun mg/markdown-mode-hook ()
+    (set (make-local-variable 'compilation-read-command) nil))
+  :hook
+  ((markdown-mode . mg/markdown-mode-hook))
   :bind ((:map markdown-mode-map
                ("*" . mg/self-insert-or-wrap-command)
                ("_" . mg/self-insert-or-wrap-command)
-               ("`" . mg/self-insert-or-wrap-command))))
+               ("`" . mg/self-insert-or-wrap-command)
+               ("C-c C-c" .  projectile-compile-project))))
 
 (use-package fountain-mode
   :mode ("\\.fountain\\'" . fountain-mode)
