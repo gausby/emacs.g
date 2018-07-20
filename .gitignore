@@ -11,5 +11,7 @@
 /eshell
 /company-statistics-cache.el
 /projectile-bookmarks.eld
+/url
 *.elc
 /network-security.data
+/nov-places
